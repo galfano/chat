@@ -25,7 +25,7 @@ public class ChatController {
     }
 
     @MessageExceptionHandler
-    @SendToUser("/topic/errors")
+    @SendToUser(destinations = "/topic/errors", broadcast = false)
     public String handleMessagingException(MessagingException exception) {
 
         return exception.getMessage();
