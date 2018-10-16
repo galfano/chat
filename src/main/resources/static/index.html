@@ -35,6 +35,12 @@
                 stompClient.subscribe('/topic/messages/' + sala, function(messageOutput) {
                     showMessageOutput(JSON.parse(messageOutput.body));
                 });
+
+                stompClient.subscribe('/user/topic/errors', function(response) {
+                    // showMessageOutput(JSON.parse(messageOutput.body));
+
+                    // console.log(messageOutput.body);
+                });
             });
         }
 
@@ -52,8 +58,7 @@
 
             var sala = $("#sala").val();
 
-            stompClient.send("/app/messages/" + sala, {},
-                JSON.stringify({'remetente':from, 'text':text}));
+            stompClient.send("/app/messages/" + sala, {}, JSON.stringify({'remetente':from, 'text':text}));
         }
 
         function showMessageOutput(messageOutput) {
