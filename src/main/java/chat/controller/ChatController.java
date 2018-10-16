@@ -19,7 +19,7 @@ public class ChatController {
         String time = new SimpleDateFormat("HH:mm").format(new Date());
         message.setTime(time);
 
-        throw new MessagingException("erro 500");
+        throw new MessagingException("500");
 
 //        return message;
     }
@@ -28,6 +28,6 @@ public class ChatController {
     @SendToUser("/topic/errors")
     public String handleMessagingException(MessagingException exception) {
 
-        return "BBBB";
+        return exception.getMessage();
     }
 }
