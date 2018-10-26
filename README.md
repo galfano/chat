@@ -6,7 +6,7 @@ possivelmente não com o que envia a mensagem.
 
 
 ## Solução
-O RabbitMQ é um software de mensagem intermediário que pode ser integrado com o Spring. Nesse caso a aplicação recebe as
+O [RabbitMQ](https://www.rabbitmq.com/) é um software de mensagem intermediário que pode ser integrado com o Spring. Nesse caso a aplicação recebe as
 conexões com websockets e as retransmite para o RabbitMQ. Dessa forma, todos os websockets são informados por qualquer node
 da aplicação e podem ser notificados.
 
