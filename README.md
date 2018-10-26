@@ -51,7 +51,7 @@ Configure a conexão de retransmissão na classe de configuração do Websocket
                   .setClientPasscode("guest");
     }
     
-Por padrão o HabbitMQ não suporta "/" como separador padrão. O separador padrão é o ".". Sendo assim no controlador 
+Por padrão o HabbitMQ não suporta "/" como separador. O separador padrão é o ".". Sendo assim no controlador 
 responsável por receber as mensagens enviadas pelo cliente e entregar para os usuários inscritos na URL, a annotation fica assim:
 
     @SendTo("/topic/messages.{sala}")    
