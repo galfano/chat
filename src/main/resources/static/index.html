@@ -30,9 +30,9 @@
             stompClient = Stomp.over(socket);
             stompClient.connect({sala: sala}, function(frame) {
                 setConnected(true);
-                console.log('Connected: ' + frame);
+                // console.log('Connected: ' + frame);
 
-                stompClient.subscribe('/topic/messages/' + sala, function(messageOutput) {
+                stompClient.subscribe('/topic/messages.' + sala, function(messageOutput) {
                     showMessageOutput(JSON.parse(messageOutput.body));
                 });
 
@@ -89,7 +89,7 @@
     <br />
     <div>
         <!--<button id="connect" onclick="connect();">Connect</button>-->
-        <button id="disconnect" disabled="disabled" onclick="disconnect();">
+        <button id="disconnect" onclick="disconnect();">
             Disconnect
         </button>
     </div>

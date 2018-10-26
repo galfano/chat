@@ -2,8 +2,7 @@ package chat.controller;
 
 import chat.model.Message;
 import org.springframework.messaging.MessagingException;
-import org.springframework.messaging.handler.annotation.MessageExceptionHandler;
-import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.*;
 import org.springframework.messaging.simp.annotation.SendToUser;
 import org.springframework.stereotype.Controller;
 
@@ -14,14 +13,15 @@ import java.util.Date;
 public class ChatController {
 
     @MessageMapping("/messages/{sala}")
-    public Message send(Message message) {
+    @SendTo("/topic/messages.{sala}")
+    public Message send(@DestinationVariable String sala, Message message) {
 
         String time = new SimpleDateFormat("HH:mm").format(new Date());
         message.setTime(time);
 
-        throw new MessagingException("500");
+//        throw new MessagingException("500");
 
-//        return message;
+        return message;
     }
 
     @MessageExceptionHandler
