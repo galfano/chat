@@ -18,8 +18,20 @@ da aplicação e podem ser notificados.
     $ sudo service rabbitmq-server stop
     $ sudo service rabbitmq-server start
 
-Após a instalação acesse o painel do serviço: http://localhost:15672
+Após a instalação acesse o painel do serviço: http://localhost:15672.
 O login e senha padrão são: guest/guest
+
+Para conexões com url diferente de localhost é necessário adicionar uma configuração.
+Crie o arquivo /etc/rabbitmq/rabbitmq.conf, e adicione a linha abaixo.
+
+    loopback_users = none
+
+Salve o arquivo e reinicie o servidor:
+
+
+    $ sudo service rabbitmq-server stop
+    $ sudo service rabbitmq-server start    
+    
 
 ## Servidor
 
